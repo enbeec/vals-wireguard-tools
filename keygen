@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+[[ $1 == "" ]] && echo provide a client name && exit 255
+client="$1"
+mkdir $client
+umask 077
+wg genkey | tee $client/privatekey | wg pubkey > $client/publickey
