@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+num=$1
+usage="provide a number of seconds to keepalive \n provide 0 to disable keepalive"
+[[ $num == "" ]] && echo -e $usage && exit 255
+
+for conf in */*.conf; do
+	if [ $num == 0 ]; then
+		sed -i '/PersistentKeepalive =/s/.*/#/' $conf
+	else
+		if [ -z "$(grep 'PersistentKeepalive =' $conf)" ]; then
+			echo "PersistentKeepalive = $num" >> $conf
+		else
+			sed -i '/PersistentKeepalive =/s/.*/PersistentKeepalive = '$num'/' $conf
+		fi
+	fi
+
+	# if DEBUG is set, it will be substituted for asdf
+	# this is to check if DEBUG was set to an empty string or is truly unset
+	if [ -n ${DEBUG+asdf} ]; then
+		echo $conf
+		echo -e "\t $(cat $conf | grep PersistentKeepalive)"
+	fi
+done
