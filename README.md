@@ -61,3 +61,5 @@ And then you remember that you don't wanna add that yet because you want to know
 ```
 set-keepalives 0
 ```
+
+Now you can send that config (securely!) to your client device. For mobile clients try `qrencode -t ansiutf8 < steve/steve.conf` and scan it with your camera 👍
