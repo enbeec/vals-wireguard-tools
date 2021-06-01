@@ -2,7 +2,14 @@
 
 ## About
 
-These scripts are written with Ubuntu and FreeBSD in mind but the latter is much more of a special case. In general though, you should be fine server-wise with any platform that is compatible with `wg-quick` so we can use simple .conf files for all peers. Keep in mind that in Wireguard, a server is basically just another node even if you're like me -- too lazy to mesh it and happy with a hub and spoke. In our case, our server is a node that happens to be up all the times, routing between nodes and (if you feel fancy) providing DNS via `dnsmasq`.
+This is a collection of scripts and documents to aid in creating a hub-and-spoke Wireguard network. Wireguard is a very nice VPN for a few reasons:
+
+- it's native to the Linux kernel
+- it's got great ports on almost every OS
+- the iOS port is, from what I understand, very well written and mature -- it certainly works well
+- super easy to configure using the handy `wg-quick` config syntax
+
+The scripts themselves are written with Ubuntu and FreeBSD in mind but the latter is much more of a special case. In general though, you should be fine server-wise with any platform that is compatible with `wg-quick` so we can use simple .conf files for all peers. Keep in mind that in Wireguard, a server is basically just another node even if you're like me -- too lazy to mesh it and happy with a hub and spoke. In our case, our server is a node that happens to be up all the times, routing between nodes and (if you feel fancy) providing DNS via `dnsmasq`.
 
 ## Workflow
 
